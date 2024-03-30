@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block body %}
+
+<nav aria-label="breadcrumb" style="margin-top: 20px; margin-left: 30px">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{{ url_for('index.home') }}">Home</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Employee</li>
+  </ol>
+</nav>
+
+<h1>Employee List</h1>
+<div class="list-group">
+  {%for emp in emps_list%}
+
+  <a
+    href="{{ url_for('employee.get', _id=emp.id) }}"
+    class="list-group-item list-group-item-action"
+  >
+    <ul class="list-group list-group-horizontal">
+      <li class="list-group-item">{{emp.name}}</li>
+      <li class="list-group-item">{{emp.department}}</li>
+      <li class="list-group-item">{{emp.designation}}</li>
+    </ul>
+  </a>
+  {%endfor%}
+</div>
+{% endblock %}

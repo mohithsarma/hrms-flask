@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block body %}
+
+<nav aria-label="breadcrumb" style="margin-top: 20px; margin-left: 30px">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{{ url_for('index.home') }}">Home</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="{{ url_for('employee.emp_list') }}">Employee</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Details</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card" style="width: 18rem">
+    <div class="card-header">Employee Details</div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: {{ employee.name }}</li>
+      <li class="list-group-item">Address : {{employee.address}}</li>
+      <li class="list-group-item">Email : {{employee.email}}</li>
+      <li class="list-group-item">Designation: {{ employee.designation }}</li>
+      <li class="list-group-item">Department: {{employee.department}}</li>
+      <li class="list-group-item">Date of Join : {{employee.joined_at}}</li>
+    </ul>
+    <div class="card-footer">
+      <form
+        method="post"
+        action="{{ url_for('employee.delete', _id=employee.id) }}"
+      >
+        <button class="btn btn-danger" name="delete" type="submit">
+          Delete this Employee Datas
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

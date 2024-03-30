@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+{% block body %}
+
+<nav aria-label="breadcrumb" style="margin-top: 20px; margin-left: 30px;">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('index.home') }}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('employee.emp_list') }}">Employee</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+</nav>
+
+<h1>Create new Employee</h1>
+
+<form method="post" action="{{ url_for('employee.create') }}">
+  <div>
+    <label
+      >name
+      <input type="text" name="name" maxlength="100" />
+    </label>
+  </div>
+  <div>
+    <label
+      >Email
+      <input type="text" name="email" maxlength="200" />
+    </label>
+  </div>
+  <div>
+    <label
+      >Address
+      <input type="text" name="address" maxlength="100" />
+    </label>
+  </div>
+  <div>
+    <label
+      >designation
+      <input type="text" name="designation" maxlength="100" />
+    </label>
+  </div>
+  <div>
+    <label
+      >department
+      <input type="text" name="department" maxlength="100" />
+    </label>
+  </div>
+  <div>
+    <label
+      >date of join
+      <input type="date" name="joined_at" maxlength="100" />
+    </label>
+  </div>
+
+  <div>
+    <button type="submit">Create</button>
+  </div>
+</form>
+
+{% endblock %}
